@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InfoDetailActivity"
+    android:background="@color/background">
+
+    <!-- 뒤로가기 버튼 -->
+    <ImageButton
+        android:id="@+id/detail_back_imgbtn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back2" />
+
+    <!-- Close 버튼 -->
+    <Button
+        android:id="@+id/detail_EDIT_imgbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="130dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/button"
+        android:text="수정"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/blackText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close_button" />
+
+    <Button
+        android:id="@+id/detail_DELETE_imgbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/button"
+        android:text="삭제"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/blackText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close_button" />
+
+    <!-- BigInfo -->
+    <LinearLayout
+        android:id="@+id/BigInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="90dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/BigInfoLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <!-- ImageView -->
+            <ImageView
+                android:id="@+id/InfoDetailPlantPic"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginStart="30dp"
+                android:background="@drawable/round_shape"
+                android:clipToOutline="true"
+                android:contentDescription="등록된 식물의 사진입니다" />
+
+            <!-- 텍스트 정보 -->
+            <LinearLayout
+                android:id="@+id/InfoTextLinear"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/InfoDetailNickName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="닉네임"
+                    android:padding="5dp"
+                    android:textSize="20sp"
+                    android:background="@color/main_text"
+                    android:textColor="@color/blackText" />
+
+                <TextView
+                    android:id="@+id/InfoDetailPlantName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="식물종"
+                    android:padding="5dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:background="@color/main_text"
+                    android:textColor="@color/blackText" />
+
+                <TextView
+                    android:id="@+id/InfoDetailCheckDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="확인주기"
+                    android:padding="5dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:background="@color/main_text"
+                    android:textColor="@color/blackText" />
+
+                <TextView
+                    android:id="@+id/InfoDetailAddDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="등록날짜"
+                    android:padding="5dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:background="@color/main_text"
+                    android:textColor="@color/blackText" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- BigInfoLinear2 -->
+    <LinearLayout
+        android:id="@+id/BigInfoLinear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/BigInfo"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/detail_activity_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="권장 생육 환경"
+            android:textSize="21sp"
+            android:textColor="@color/main_text"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/detail_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/main_text"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/detail_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="권장 생육 환경"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/blackText" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

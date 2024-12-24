@@ -3,9 +3,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.guguma.guguma_application.PlantAdapter
@@ -30,37 +28,62 @@ class HomeFragment : Fragment() {
         ViewModelProvider(this, factory).get(PlantViewModel::class.java)
     }
 
-    private val addPlantLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val data = result.data
-            val plantId = data?.getLongExtra("plantId", -1L) ?: -1L
-            val newPlantName = data?.getStringExtra("newPlantName")
-            val newPlantImageUrl = data?.getStringExtra("newPlantImageUrl")
+//    private val addPlantLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+//        if (result.resultCode == Activity.RESULT_OK) {
+//            val data = result.data
+//            val plantId = data?.getLongExtra("plantId", -1L) ?: -1L
+//            val newPlantName = data?.getStringExtra("newPlantName")
+//            val newPlantImageUrl = data?.getStringExtra("newPlantImageUrl")
+//
+//            if (plantId != -1L && !newPlantName.isNullOrEmpty() && !newPlantImageUrl.isNullOrEmpty()) {
+//                val newPlant = PlantDto(plantId, newPlantName, newPlantImageUrl)
+//                plantViewModel.addPlant(newPlant) // ViewModel에 데이터 추가
+//            }
+//        }
+//    }
 
-            if (plantId != -1L && !newPlantName.isNullOrEmpty() && !newPlantImageUrl.isNullOrEmpty()) {
-                val newPlant = PlantDto(plantId, newPlantName, newPlantImageUrl)
-                plantViewModel.addPlant(newPlant) // ViewModel에 데이터 추가
-            }
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val adapter = PlantAdapter(requireContext())
+
         binding.plantListView.layoutManager = LinearLayoutManager(requireContext())
-        binding.plantListView.adapter = PlantAdapter(requireContext(), mutableListOf())
+//        binding.plantListView.adapter = PlantAdapter(requireContext(), mutableListOf())
+        binding.plantListView.adapter = adapter
         plantViewModel.plantList.observe(viewLifecycleOwner) { updatedPlantList ->
-            updateUI(updatedPlantList)
+//            updateUI(updatedPlantList)
+            adapter.updateData(updatedPlantList)
         }
         return binding.root
     }
+
+
+
+    private val addPlantResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            result.data?.let { data ->
+                val id = data.getLongExtra("id", -1L) // 기본값을 -1L로 설정
+                val name = data.getStringExtra("name")?: "unknown"
+                val nickname = data.getStringExtra("nickname")?: "unknown"
+                val creatDate = data.getStringExtra("createDate")?: "unknown"
+                val checkDate = data.getIntExtra("checkdate", 1)
+                val remedy = data.getStringExtra("remedy")?: "unknown"
+                val imageUrl = data.getStringExtra("imageUrl")?: "unknown"
+                val newPlant = PlantDto(id, creatDate, name, checkDate, nickname, remedy, imageUrl) // ID는 자동 생성되거나 즉시 필요하지 않다고 가정
+                plantViewModel.addPlant(newPlant)
+            }
+        }
+    }
+
 
     override fun onResume() {
         super.onResume()
         plantViewModel.fetchPlantsFromServer() // 서버에서 최신 데이터를 가져옴
     }
+
 
     private fun updateUI(plantList: MutableList<PlantDto>) {
         val adapter = binding.plantListView.adapter as? PlantAdapter

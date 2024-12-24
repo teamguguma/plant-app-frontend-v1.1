@@ -8,7 +8,6 @@
     tools:context=".HomeFragment"
     android:background="@color/background">
 
-    
     <!-- 첫 번째 컨테이너 -->
     <LinearLayout
         android:id="@+id/home_containerLayout1"
@@ -18,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        
+
         <TextView
             android:textStyle="bold"
             android:layout_width="wrap_content"
@@ -29,24 +28,23 @@
             android:text="최근 촬영 식물 목록"
             android:contentDescription="최근 촬영한 식물 목록을 보여줍니다"
             android:textColor="@color/main_text"/>
-        
-
     </LinearLayout>
 
     <!-- 두 번째 컨테이너 -->
     <LinearLayout
         android:id="@+id/home_containerLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/home_containerLayout1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/plantListView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="562dp"
             android:contentDescription="최근 촬영된 식물의 목록입니다. 항목을 선택하여 자세히 알아보세요." />
     </LinearLayout>
 

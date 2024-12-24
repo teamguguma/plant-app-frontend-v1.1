@@ -23,6 +23,7 @@
     <string name="bringGalleryBtnString">갤러리 가져오기</string>
     <string name="picAddBtnString">직접 사진 찍기</string>
     <string name="plantNickname_Edit">식물 애칭 수정</string>
+    <string name="plantRemedy_Edit">식물 관리 방법 수정</string>
 
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>

@@ -35,8 +35,9 @@ class PlantViewModel(private val userId: String) : ViewModel() {
 
     // 서버에서 식물 목록 가져오기
     fun fetchPlantsFromServer() {
+        val url = BuildConfig.API_PLANT_ALL_LIST.replace("{userUuid}", userId)
         val request = Request.Builder()
-            .url(BuildConfig.API_PLANT_LIST_TEMPLATE) // 서버 URL
+            .url(url) // 서버 URL
             .build()
 
         client.newCall(request).enqueue(object : Callback {
@@ -48,6 +49,8 @@ class PlantViewModel(private val userId: String) : ViewModel() {
                         return
                     }
                     val responseData = res.body?.string()
+                    Log.d("PlantViewModel", "Received JSON: $responseData")
+
                     if (!responseData.isNullOrEmpty()) {
                         val plants = parsePlantData(responseData).toMutableList()
                         Log.d("PlantViewModel", "Fetched plants: $plants")
@@ -71,9 +74,17 @@ class PlantViewModel(private val userId: String) : ViewModel() {
         for (i in 0 until jsonArray.length()) {
             val item = jsonArray.getJSONObject(i)
             val id = item.getLong("id")
-            val name = item.getString("name")
-            val imageUrl = item.getString("imageUrl")
-            plantList.add(PlantDto(id, name, imageUrl))
+            val plantNickname  = item.getString("plantNickname")
+            val name = item.getString("plantName")
+            val createdAt = item.getString("createdAt")
+            val chckdate = item.getInt("checkDateInterval")
+
+            // statuses 배열 내의 첫 번째 객체에서 imageUrl을 가져옵니다.
+            val recentStatus = item.getJSONObject("recentStatus")
+            val imageUrl = recentStatus.getString("imageUrl")
+            val remedy = recentStatus.getString("remedy")
+
+            plantList.add(PlantDto(id, createdAt, name, chckdate, plantNickname, remedy, imageUrl))
         }
         return plantList
     }

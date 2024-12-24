@@ -21,7 +21,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label=""
+        android:label="식끌식끌"
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -29,10 +29,19 @@
         android:theme="@style/Theme.Guguma_Application">
 
         <activity
+            android:name=".InfoDetailActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".CreatePlantStartActivity"
             android:exported="false" />
+
         <activity
             android:name=".DetailPlantActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".EditPlantActivity"
             android:exported="false" />
 
         <activity

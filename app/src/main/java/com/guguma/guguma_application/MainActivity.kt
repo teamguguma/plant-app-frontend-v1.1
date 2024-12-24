@@ -1,14 +1,11 @@
 package com.guguma.guguma_application
 
 import HomeFragment
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.guguma.guguma_application.dto.PlantDto
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
@@ -24,8 +21,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.nav_camera -> {
-                    val intent = Intent(this, CameraActivity::class.java)  // CameraActivity 실행
+                R.id.nav_AddPlant -> {
+                    val intent = Intent(this, CreatePlantStartActivity::class.java)  // CameraActivity 실행
                     startActivity(intent)
                     true
                 }

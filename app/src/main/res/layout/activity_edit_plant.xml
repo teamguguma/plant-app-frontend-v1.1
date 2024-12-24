@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".DetailPlantActivity">
-
+    tools:context=".EditPlantActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -158,86 +157,86 @@
                 </LinearLayout>
 
 
-                <!-- 식물 관리 방법 필드 -->
-                <LinearLayout
-                    android:id="@+id/plantContainer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
-                    android:orientation="vertical">
+<!--                &lt;!&ndash; 식물 관리 방법 필드 &ndash;&gt;-->
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/plantContainer"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="60dp"-->
+<!--                    android:orientation="vertical">-->
 
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content">-->
 
-                        <!-- 관리 방법 제목 -->
-                        <TextView
-                            android:id="@+id/plantRemedyTextViewTitel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
+<!--                        &lt;!&ndash; 관리 방법 제목 &ndash;&gt;-->
+<!--                        <TextView-->
+<!--                            android:id="@+id/plantRemedyTextViewTitel"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginBottom="12dp"-->
 
-                            android:text="관리 방법"
-                            android:textColor="@color/main_text"
-                            android:textSize="21sp"
-                            android:textStyle="bold"
-                            android:layout_alignParentStart="true"
-                            android:layout_centerVertical="true" />
+<!--                            android:text="관리 방법"-->
+<!--                            android:textColor="@color/main_text"-->
+<!--                            android:textSize="21sp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:layout_alignParentStart="true"-->
+<!--                            android:layout_centerVertical="true" />-->
 
-                        <!-- 수정 버튼 -->
-                        <ImageButton
-                            android:id="@+id/RemedyEditButton"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="@color/button"
-                            android:layout_marginBottom="15dp"
-                            android:contentDescription="@string/plantRemedy_Edit"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            app:srcCompat="@drawable/ic_edit" />
+<!--                        &lt;!&ndash; 수정 버튼 &ndash;&gt;-->
+<!--                        <ImageButton-->
+<!--                            android:id="@+id/RemedyEditButton"-->
+<!--                            android:layout_width="48dp"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:background="@color/button"-->
+<!--                            android:layout_marginBottom="15dp"-->
+<!--                            android:contentDescription="@string/plantRemedy_Edit"-->
+<!--                            android:layout_alignParentEnd="true"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            app:srcCompat="@drawable/ic_edit" />-->
 
-                    </RelativeLayout>
-
-
-                    <!-- 수정 버튼 -->
+<!--                    </RelativeLayout>-->
 
 
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/plantRemedyText"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:background="@color/main_text"
-                            android:ellipsize="none"
-                            android:text="우하하"
-                            android:padding="15dp"
-                            android:textColor="@color/blackText"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent" />
+<!--                    &lt;!&ndash; 수정 버튼 &ndash;&gt;-->
 
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content">-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/plantRemedyText"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:background="@color/main_text"-->
+<!--                            android:ellipsize="none"-->
+<!--                            android:text="우하하"-->
+<!--                            android:padding="15dp"-->
+<!--                            android:textColor="@color/blackText"-->
+<!--                            android:textSize="18sp"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent" />-->
 
 
-                    <!-- 수정 가능 상태 (초기에는 숨김) -->
-                    <EditText
-                        android:id="@+id/plantRemedyEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="15dp"
-                        android:background="@color/main_text"
-                        android:textColor="@color/blackText"
-                        android:textSize="18sp"
-                        android:hint="수정할 값을 입력하세요"
-                        android:visibility="gone" />
-                </LinearLayout>
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+<!--                    &lt;!&ndash; 수정 가능 상태 (초기에는 숨김) &ndash;&gt;-->
+<!--                    <EditText-->
+<!--                        android:id="@+id/plantRemedyEditText"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:padding="15dp"-->
+<!--                        android:background="@color/main_text"-->
+<!--                        android:textColor="@color/blackText"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:hint="수정할 값을 입력하세요"-->
+<!--                        android:visibility="gone" />-->
+<!--                </LinearLayout>-->
 
 
                 <LinearLayout
@@ -323,14 +322,7 @@
                 android:textStyle="bold" />
 
 
-
-
-
-
         </LinearLayout>
     </ScrollView>
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
